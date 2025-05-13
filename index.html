@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Journal</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Password Protection Script
+        function checkPassword() {
+            // Check if the user has already entered the password
+            if (localStorage.getItem("authenticated") === "true") {
+                document.body.classList.add("fade-in"); // Add fade-in class to display content
+                return;
+            }
+
+            // Prompt the user for the password
+            const password = prompt("The Password Is The Date we both confessed to liking each other (Date, Month, Year): ??????");
+            const correctPassword = "011225"; // Replace with your desired password
+
+            if (password === correctPassword) {
+                localStorage.setItem("authenticated", "true"); // Mark the user as authenticated
+                document.body.classList.add("fade-in"); // Add fade-in class to display content
+            } else {
+                alert("Incorrect password. Access denied!");
+                window.location.href = "about:blank"; // Redirect to a blank page
+            }
+        }
+
+        // Check password on page load
+        window.onload = checkPassword;
+    </script>
+</head>
+<body class="hidden">
+    <!-- Overlay with Image Background -->
+    <div class="overlay"></div>
+    
+    <div class="container">
+        <div class="paper">
+            <a href="javascript:void(0)" class="close-button">×</a>
+            <h1>Welcome to My Personal Journal</h1>
+            <p>
+                Sometimes, the things I feel can’t be captured in voice messages or seen in photos. 
+                So I built this space not as a masterpiece, but as a mirror. 
+                A quiet place where my thoughts wander when the world is too loud, 
+                and my heart needs somewhere to go.
+            </p>
+            <p>
+                This is where I lay down my thoughts and emotions. When my days feel heavy, 
+                I come here hoping I can set them aside, even for a while. 
+                And maybe… if someone reads them, I won’t feel so alone.
+            </p>
+            <p>
+                Welcome, Alesia.<br>
+                This space is yours too now. Please stay as long as you’d like.
+            </p>
+        </div>
+        <a href="journal-entry.html" class="next-arrow">→</a>
+    </div>
+</body>
+</html>
