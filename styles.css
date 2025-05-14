@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     margin: 0;
-    font-family: 'Pacifico', cursive, Arial, sans-serif;
+    font-family: 'Adorable', cursive, Arial, sans-serif;
     background: linear-gradient(to bottom, #001f3f, lavender); /* Dark Navy Blue (#001f3f) to Lavender */
     display: flex;
     justify-content: center;
@@ -27,28 +27,12 @@ body {
 .hidden {
     visibility: hidden; /* Hide the content */
     opacity: 0; /* Set transparency */
-    transition: opacity 2s ease-in; /* Smooth fade-in effect */
 }
 
 /* Fade-in effect when password is correct */
 .fade-in {
     visibility: visible; /* Make content visible */
     opacity: 1; /* Fully visible */
-}
-
-/* Fade-in Effect */
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 2s ease-in forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }
 
 /* Container */
@@ -81,52 +65,68 @@ body {
     font-size: 2rem;
     color: black;
     font-weight: bold;
-    transition: color 0.3s ease-in-out;
-    z-index: 10;
 }
 
 .close-button:hover {
     color: darkred;
 }
 
-/* Back Arrow */
-.back-arrow {
+/* Back, Next, and Latest Thoughts Buttons */
+.back-arrow,
+.next-arrow,
+.latest-thoughts {
     position: absolute;
-    top: 10px;
-    left: 15px;
     text-decoration: none;
-    font-size: 2rem;
-    color: black;
+    font-size: 1.5rem;
     font-weight: bold;
-    transition: color 0.3s ease-in-out;
+    color: black;
     z-index: 10;
-}
-
-.back-arrow:hover {
-    color: darkblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* Larger clickable area */
+    height: 60px; /* Larger clickable area */
+    border-radius: 50%; /* Circular design */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 /* Next Arrow */
 .next-arrow {
-    display: inline-block;
-    margin-top: 20px;
+    right: -30px; /* Position to the right of the paper */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
     font-size: 2rem;
+}
+
+/* Back Arrow */
+.back-arrow {
+    left: -30px; /* Position to the left of the paper */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+    font-size: 2rem;
+}
+
+/* Latest Thoughts Button */
+.latest-thoughts {
+    bottom: -50px; /* Below the paper */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: auto; /* Adaptive width */
+    height: auto; /* Adaptive height */
+    padding: 10px 20px;
+    border-radius: 10px; /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
     color: black;
-    text-decoration: none;
-    animation: bounce 2s infinite;
-    position: relative;
-    z-index: 10;
 }
 
-.next-arrow:hover {
-    color: darkblue;
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+/* Hover Effects - Glowing Text */
+.back-arrow:hover,
+.next-arrow:hover,
+.latest-thoughts:hover {
+    color: white; /* Glowing white text on hover */
+    text-shadow: 0 0 5px white, 0 0 5px white, 0 0 5px white; /* Glowing effect */
+    background-color: rgba(45, 0, 99, 0.8); /* Semi-transparent background */
 }
